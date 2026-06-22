@@ -1,0 +1,4 @@
+snipii
+*.exe
+dist/
+cover.out

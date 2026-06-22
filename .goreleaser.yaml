@@ -1,0 +1,44 @@
+version: 2
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+
+brews:
+  - repository:
+      owner: toritori0318
+      name: homebrew-tap
+    homepage: "https://github.com/toritori0318/snipii"
+    description: "A CLI tool that snips PII from text using regex + validation"
+    license: "MIT"
+    install: |
+      bin.install "snipii"
+    test: |
+      assert_match version.to_s, shell_output("#{bin}/snipii --version")
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
