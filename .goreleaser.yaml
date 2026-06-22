@@ -23,7 +23,8 @@ archives:
 brews:
   - repository:
       owner: toritori0318
-      name: homebrew-tap
+      name: snipii
+    directory: Formula
     homepage: "https://github.com/toritori0318/snipii"
     description: "A CLI tool that snips PII from text using regex + validation"
     license: "MIT"

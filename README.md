@@ -9,7 +9,7 @@ Candidates are extracted via regex, then validated with Luhn / libphonenumber / 
 ### Homebrew
 
 ```bash
-brew install toritori0318/tap/snipii
+brew install toritori0318/snipii/snipii
 ```
 
 ### go install
